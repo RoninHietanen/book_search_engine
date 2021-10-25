@@ -7,4 +7,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/book_search_eng
   useFindAndModify: false,
 });
 
+mongoose.connection((err) => {
+  if (err) throw err;
+});
+
 module.exports = mongoose.connection;
